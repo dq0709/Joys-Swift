@@ -9,20 +9,23 @@
 import UIKit
 
 class DQChosenLeftMenu: NSObject {
-
+    
     var ID:NSNumber?
     var name:String?
     var imageURL:String?
+    var cDescription:String?
     
     init?(json:[String:Any]) {
         guard let ID = json["id"] as? NSNumber,
             let imageURL = json["thumbnail"] as? String,
+            let  cDescription = json["description"] as? String,
             let  name = json["name"] as? String
             else {
                 return nil;
         }
         self.ID = ID
         self.imageURL = imageURL
+        self.cDescription = cDescription
         self.name = name
     }
     
@@ -31,10 +34,11 @@ class DQChosenLeftMenu: NSObject {
         self.ID = 0
         self.imageURL = ""
         self.name = ""
+        self.cDescription = ""
     }
     
     class func themes(json:[String:Any]) -> [DQChosenLeftMenu] {
-        guard let array = json["others"] as? [[String:Any]] else {
+        guard let array = json["data"] as? [[String:Any]] else {
             return []
         }
         var themes:[DQChosenLeftMenu] = []
