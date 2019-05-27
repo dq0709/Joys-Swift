@@ -12,8 +12,8 @@ class DQNavi: WMPageController {
     
     static let standardNavi: UINavigationController = {
         let vc = DQNavi.init(viewControllerClasses: DQNavi.vcClasses(), andTheirTitles: DQNavi.itemNames())
-        vc.keys = DQNavi.vcKeys() as! NSMutableArray
-        vc.values = DQNavi.vcValues() as! NSMutableArray
+        vc.keys = DQNavi.vcKeys()
+        vc.values = DQNavi.vcValues()
         var standardNavi = UINavigationController.init(rootViewController: vc)
         return standardNavi
     }()
@@ -44,18 +44,18 @@ class DQNavi: WMPageController {
         return arr
     }
     
-    class func vcValues() -> [NSInteger] {
-        var arr:[NSInteger] = []
+    class func vcValues() -> NSMutableArray {
+        let arr:NSMutableArray = []
         for index in 0 ... DQNavi.itemNames().count-1 {
-            arr.append(index)
+            arr.add(index)
         }
         return arr
     }
     
-    class func vcKeys() -> [String] {
-        var keys:[String] = []
+    class func vcKeys() -> NSMutableArray {
+        let keys:NSMutableArray = []
         for _ in DQNavi.itemNames() {
-            keys.append("infoType")
+            keys.add("infoType")
         }
         return keys
     }

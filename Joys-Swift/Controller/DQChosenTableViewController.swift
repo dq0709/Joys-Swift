@@ -16,7 +16,7 @@ class DQChosenTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clear)
+//        self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clear)
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
         self.sideMenuViewController.navigationItem.title = "精选"
@@ -80,30 +80,30 @@ class DQChosenTableViewController: UITableViewController {
     
     //MARK: - UIScrollViewDelegate
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let color = UIColor.init(red: 132/255.0, green: 175/255.0, blue: 109/255.0, alpha: 1)
-        let height = self.tableView.tableHeaderView?.bounds.size.height
-        let offsetY = scrollView.contentOffset.y
-        if offsetY > NAVBAR_CHANGE_POINT {
-            let alpha = 1 - ((NAVBAR_CHANGE_POINT + height! - offsetY - 64) / height!)
-            self.navigationController?.navigationBar.lt_setBackgroundColor(color.withAlphaComponent(alpha))
-        } else {
-            self.navigationController?.navigationBar.lt_setBackgroundColor(color.withAlphaComponent(0))
-        }
+//        let color = UIColor.init(red: 132/255.0, green: 175/255.0, blue: 109/255.0, alpha: 1)
+//        let height = self.tableView.tableHeaderView?.bounds.size.height
+//        let offsetY = scrollView.contentOffset.y
+//        if offsetY > NAVBAR_CHANGE_POINT {
+//            let alpha = 1 - ((NAVBAR_CHANGE_POINT + height! - offsetY - 64) / height!)
+//            self.navigationController?.navigationBar.lt_setBackgroundColor(color.withAlphaComponent(alpha))
+//        } else {
+//            self.navigationController?.navigationBar.lt_setBackgroundColor(color.withAlphaComponent(0))
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.scrollViewDidScroll(self.tableView)
-        let header =  self.tableView.tableHeaderView as? ScrollableView
-        header?.stopScroll()
-        header?.startAutoScroll()
+//        self.scrollViewDidScroll(self.tableView)
+//        let header =  self.tableView.tableHeaderView as? ScrollableView
+//        header?.stopScroll()
+//        header?.startAutoScroll()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let header =  self.tableView.tableHeaderView as? ScrollableView
-        header?.stopScroll()
-        self.navigationController?.navigationBar.lt_reset()
+//        let header =  self.tableView.tableHeaderView as? ScrollableView
+//        header?.stopScroll()
+//        self.navigationController?.navigationBar.lt_reset()
     }
     
     override func didReceiveMemoryWarning() {
